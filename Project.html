@@ -1,0 +1,124 @@
+<html>
+<head> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+<style>
+  .small{width: 30%;}
+</style>
+</head>
+  <body>
+    <!-- Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Customers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Suppliers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Orders</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  <!-- Input Boxes -->
+  <div id="customerInputBoxes">
+    <div class="input-group input-group-sm mb-3" >
+      <div class="input-group-prepend ">
+        <span class="input-group-text " >Customer Name</span>
+      </div>
+      <input type="text" class="form-control"id="customerName" aria-label="Customer Name" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" >Address</span>
+      </div>
+      <input type="text" class="form-control" id="customerAddress" aria-label="Customer Name" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"">Phone No.</span>
+      </div>
+      <input type="text" class="form-control" id="customerPhoneNo" aria-label="Customer Name" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" >Email</span>
+      </div>
+      <input type="text" class="form-control" id="customerEmail" aria-label="Customer Email" aria-describedby="inputGroup-sizing-sm">
+    </div>
+  </div>
+  <!--List of Items -->
+  <div id="listElements">
+    
+  </div>
+
+  <!-- CRUD Buttons-->
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+      <button type="button" class="btn btn-secondary" onclick="listAppend()">Add</button>
+      <button type="button" class="btn btn-secondary">Update</button>
+      <button type="button" class="btn btn-secondary">Delete</button>
+      <button type="button" class="btn btn-secondary">Home</button>
+      <button type="button" class="btn btn-secondary">Exit</button>
+
+    </div>
+  </div>
+
+    <!-- <button  onclick="myfunction()"><b>Calculate</b></button>
+    <h2>Results: <span id= "results"></span></h1> -->
+
+      <script>
+        var count = 0;
+        function listAppend(){
+          count++;
+          console.log(count);
+          var strs = [];
+          strs[0] =  document.getElementById('customerName').value;
+          strs[1] = document.getElementById('customerAddress').value;
+          strs[2] = document.getElementById('customerPhoneNo').value;
+          strs[3] = document.getElementById('customerEmail').value;
+
+          console.log(strs[0] + strs[1] );
+
+          let joined = strs.join(", ");
+
+          var list = document.createElement("ul");
+
+          
+            let elem = document.createElement('li');
+            elem.class = "list-group-item";
+            elem.id = "listElement" + count;
+            elem.innerText = joined;
+
+            list.appendChild(elem);
+        
+
+        document.getElementById('listElements').append(list);
+
+      }
+      </script>
+    <script>
+      function myfunction()
+      {
+      
+        document.getElementById("results").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
+
+
